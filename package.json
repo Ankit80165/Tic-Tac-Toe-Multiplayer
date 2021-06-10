@@ -4,6 +4,7 @@
   "description": "Multiplayer Tic-Tac-Toe game with Node, Socket",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ankit",
