@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- google fonts CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e7fe3c2377.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <audio class="stopwatch" src="./sounds/stopwatch.wav"></audio>
+    <audio class="winning-audio" src="./sounds/winning_sound.wav"></audio>
+    <h1 class="header"><i class="fas fa-gamepad"></i>&nbsp;Tic - Tac - Toe</h1>
+    <div class="container">
+      <div class="menu">
+        <h3>How To Play</h3>
+        <ol>
+          <li>Player 1 Create a new game by entering the username</li>
+          <li>
+            Player 2 Enter another username and the room id that is displayed on
+            first window.
+          </li>
+          <li>Click on join game.</li>
+        </ol>
+        <h4>Create a new Game</h4>
+        <input
+          type="text"
+          name="name"
+          id="nameNew"
+          placeholder="Enter your name"
+          required
+        />
+        <button id="new">New Game</button>
+        <br /><br />
+        <h4>Join an existing game</h4>
+        <input
+          type="text"
+          name="name"
+          id="nameJoin"
+          placeholder="Enter your name"
+          required
+        />
+        <input
+          type="text"
+          name="room"
+          id="room"
+          placeholder="Enter Game ID"
+          required
+        />
+        <button id="join">Join Game</button>
+      </div>
+      <!-- <div>
+        <h1 id="welcomeHeader"></h1>
+        <h3 id="shareRoom"></h3>
+      </div> -->
+      <div class="gameBoard" style="display: none">
+        <h4 id="userHello"></h4>
+        <h6 id="invite"></h6>
+        <h6 id="turn"></h6>
+        <table>
+          <tr>
+            <td class="cell col_00">
+              <button class="tile" id="button_00"></button>
+            </td>
+            <td class="cell col_01">
+              <button class="tile" id="button_01"></button>
+            </td>
+            <td class="cell col_02">
+              <button class="tile" id="button_02"></button>
+            </td>
+          </tr>
+          <tr>
+            <td class="cell col_10">
+              <button class="tile" id="button_10"></button>
+            </td>
+            <td class="cell col_11">
+              <button class="tile" id="button_11"></button>
+            </td>
+            <td class="cell col_12">
+              <button class="tile" id="button_12"></button>
+            </td>
+          </tr>
+          <tr>
+            <td class="cell col_20">
+              <button class="tile" id="button_20"></button>
+            </td>
+            <td class="cell col_21">
+              <button class="tile" id="button_21"></button>
+            </td>
+            <td class="cell col_22">
+              <button class="tile" id="button_22"></button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

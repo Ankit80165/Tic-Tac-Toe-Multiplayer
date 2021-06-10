@@ -1,0 +1,93 @@
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
+.col_00,
+.col_01,
+.col_10,
+.col_11 {
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+}
+.col_02,
+.col_12 {
+  /* border-right: 4px solid white; */
+  border-bottom: 4px solid white;
+}
+.col_20,
+.col_21 {
+  border-right: 4px solid white;
+}
+td,
+th {
+  border: none;
+}
+.tile {
+  outline: none;
+  border: none;
+}
+.header {
+  /* font-weight: 600; */
+  color: black;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+h3 {
+  font-weight: 600;
+  color: #8a8fa3;
+  border-bottom: 2px solid #8a8fa3;
+}
+li {
+  color: #8a8fa3;
+}
+h4 {
+  color: #8a8fa3;
+  border-bottom: 2px solid #8a8fa3;
+}
+#new {
+  color: #8a8fa3;
+  background-color: #234d23;
+}
+#join {
+  color: black;
+  background-color: #958535;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #8a8fa3;
+}
+.game-room {
+  background-color: #8a8fa3;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 400;
+  color: black;
+}
+.copy-btn {
+  outline: none;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.cell {
+  height: 100px;
+  width: 100px;
+}
+.cell button {
+  height: 90px;
+  width: 90px;
+  font-size: 1.5rem;
+  padding: 5px 0;
+}
