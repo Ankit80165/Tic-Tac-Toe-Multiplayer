@@ -12,7 +12,7 @@ app.get("/", (req, res, next) => {
   res.sendFile("/public/index.html");
 });
 // listen and creating server instance
-const expressServer = app.listen(3000);
+const expressServer = app.listen(process.env.PORT || 3000);
 const io = socket(expressServer);
 let roomNumber = 0;
 io.on("connection", (socket) => {
