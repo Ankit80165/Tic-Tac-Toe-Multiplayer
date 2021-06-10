@@ -23,3 +23,4 @@ To run this game locally:
 ## Screenshots
 
 ![Alt text](public/ss/LandingPage.png "Optional title")
+![Alt text](public/ss/boardScreen.png "Optional title")
