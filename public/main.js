@@ -3,6 +3,7 @@ let player, game;
 let WIN_ARRAY = [];
 const stopwatch = document.querySelector(".stopwatch");
 stopwatch.loop = true;
+
 initGame();
 
 class Player {
@@ -58,7 +59,6 @@ class GameBoard {
         return;
       }
       if ($(this).prop("disabled")) {
-        console.log("disabled");
         swal(`This cell is already played on!`, {
           icon: "warning",
           buttons: false,
@@ -182,7 +182,13 @@ function initGame() {
   });
   //   if any error happens
   socket.on("roomError", (data) => {
-    console.log(data);
+    swal(data.message, {
+      icon: "error",
+      buttons: false,
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+      timer: 3000,
+    });
   });
   //   for player1
   socket.on("player1", (data) => {
@@ -221,7 +227,6 @@ function initGame() {
     player.setCurrentTurn(true);
   });
   socket.on("gameEnd", (data) => {
-    console.log(player.getPlayerName(), "wins");
     let message;
     if (data.name === player.getPlayerName()) {
       message = `You wins!`;
@@ -288,15 +293,10 @@ function initGame() {
       location.reload();
     }, 5000);
   });
-  socket.on("rejoin", (data) => {
-    console.log("wanna rejoin");
-    alert("wanna rejoin!");
-  });
 }
 
 // copy to clip board
 function copyToclipBoard() {
-  console.log("clicked");
   const cb = navigator.clipboard;
   const span = document.querySelector(".game-room");
   cb.writeText(span.innerText).then(() => {
