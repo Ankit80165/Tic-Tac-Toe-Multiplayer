@@ -21,7 +21,9 @@ To run this game locally:
 5. Go to http://localhost:3000/
 
 ## Screenshots
-Landing page screenshot
-![Alt text](public/ss/LandingPage.png "Landing page")
-Game board screenshot
-![Alt text](public/ss/boardScreen.png "Game Board")
+
+![Alt text](public/ss/ss1.png "Dark mode Landing page")
+
+![Alt text](public/ss/ss2.png "Light Mode Landing Page")
+
+![Alt text](public/ss/ss2.png "Game Board")
