@@ -22,8 +22,8 @@ To run this game locally:
 
 ## Screenshots
 
-![Alt text](public/ss/ss1.png "Dark mode Landing page")
+![Alt text](public/ss/ss1.jpeg "Dark mode Landing page")
 
-![Alt text](public/ss/ss2.png "Light Mode Landing Page")
+![Alt text](public/ss/ss2.jpeg "Light Mode Landing Page")
 
-![Alt text](public/ss/ss2.png "Game Board")
+![Alt text](public/ss/ss3.png "Game Board")
