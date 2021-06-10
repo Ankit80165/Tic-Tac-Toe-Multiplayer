@@ -8,7 +8,7 @@ b. Socket.Io
 c. Express
 d. Skeleton css
 
-To run this game locally: 
+To run this game locally:
 
 1. Clone this repository
 
@@ -18,7 +18,8 @@ To run this game locally:
 
 4. Run `npm start`
 
-4. Go to http://localhost:3000/
+5. Go to http://localhost:3000/
 
 ## Screenshots
-![Alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjiyTIeW6qiFFpHyo7LXQbQz1-sZAcLMrE0g&usqp=CAU "Optional title")
+
+![Alt text](public/ss/LandingPage.png "Optional title")
