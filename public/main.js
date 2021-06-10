@@ -46,7 +46,7 @@ class GameBoard {
     function tileClickHandler() {
       const row = parseInt(this.id.split("_")[1][0], 10);
       const col = parseInt(this.id.split("_")[1][1], 10);
-      const audio = document.querySelector(`#audio_${row}${col}`);
+      const audio = document.querySelector(`.turnsound`);
       if (!player.getCurrentTurn() || !game) {
         swal(`It is not your turn. Wait for other player!!!`, {
           icon: "warning",
@@ -57,7 +57,6 @@ class GameBoard {
         });
         return;
       }
-      console.log($(this).prop("disabled"));
       if ($(this).prop("disabled")) {
         console.log("disabled");
         swal(`This cell is already played on!`, {
@@ -70,7 +69,7 @@ class GameBoard {
         return;
       }
       // Update board after your turn.
-      game.playTurn(this);
+      game.playTurn(this, audio);
       game.updateBoard(row, col, player.getPlayerType());
 
       player.setCurrentTurn(false);
@@ -132,8 +131,14 @@ class GameBoard {
     this.board[row][col] = type;
     this.moves++;
   }
-  playTurn(element) {
+  playTurn(element, audio) {
+    if (player.getPlayerType() == "X") {
+      audio.setAttribute("src", "./sounds/xTap.wav");
+    } else {
+      audio.setAttribute("src", "./sounds/oTap.wav");
+    }
     const clickedTile = $(element).attr("id");
+    audio.play();
     stopwatch.play();
     // Emit an event to update other player that you've played your turn.
     socket.emit("playTurn", {
@@ -216,6 +221,7 @@ function initGame() {
     player.setCurrentTurn(true);
   });
   socket.on("gameEnd", (data) => {
+    console.log(player.getPlayerName(), "wins");
     let message;
     if (data.name === player.getPlayerName()) {
       message = `You wins!`;
@@ -225,6 +231,7 @@ function initGame() {
     const winningAudio = document.querySelector(".winning-audio");
     setTimeout(() => {
       //   alert(message);
+      winningAudio.pause();
       location.reload();
     }, 5000);
     if (message === "You wins!") {
@@ -251,6 +258,9 @@ function initGame() {
     }
   });
   socket.on("tie", (data) => {
+    const tieAlert = document.querySelector(".tie-alert");
+    stopwatch.pause();
+    tieAlert.play();
     swal(`Game Tied!!!😝`, {
       icon: "warning",
       buttons: false,
@@ -259,8 +269,28 @@ function initGame() {
       timer: 5000,
     });
     setTimeout(() => {
+      tieAlert.pause();
       location.reload();
     }, 5000);
+  });
+  socket.on("clientLeaves", (data) => {
+    const clientLeaveAlert = document.querySelector(".leave-sound");
+    clientLeaveAlert.play();
+    swal(data.message, {
+      icon: "error",
+      buttons: false,
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+      timer: 5000,
+    });
+    setTimeout(() => {
+      clientLeaveAlert.pause();
+      location.reload();
+    }, 5000);
+  });
+  socket.on("rejoin", (data) => {
+    console.log("wanna rejoin");
+    alert("wanna rejoin!");
   });
 }
 

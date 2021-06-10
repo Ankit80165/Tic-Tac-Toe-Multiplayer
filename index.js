@@ -57,4 +57,13 @@ io.on("connection", (socket) => {
   socket.on("gameTied", (data) => {
     io.to(data.room).emit("tie", data);
   });
+  socket.on("disconnecting", () => {
+    const roomSet = Array.from(socket.rooms); // the Set contains at least the socket ID
+    if (roomSet.length >= 2) {
+      const room = roomSet[1];
+      socket.broadcast.to(room).emit("clientLeaves", {
+        message: "Other player has leave the room😢😢😢",
+      });
+    }
+  });
 });
